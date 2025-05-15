@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Inventory</title>
+</head>
+<body>
+    <h1>{{ 'Edit Item' if item else 'Add Item' }}</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <label for="nombre">{{ form.nombre.label }}</label> 
+        {{ form.nombre() }} <br>
+
+        <label for="categoria">{{ form.Categoria.label }}</label> 
+        {{ form.categoria() }} <br>
+
+        <label for="precio_estimado">{{ form.precio_estimado.label }}</label> 
+        {{ form.price() }} <br>
+
+        <label for="ubicacion">{{ form.ubicacion.label }}</label> 
+        {{ form.ubicacion() }} <br>
+
+        <label for="fecha_adquisicion">{{ form.fecha_adquisicion.label }}</label> 
+        {{ form.fecha_adquisicion() }} <br>
+
+        <button type="submit">{{ form.submit.label.text }}</button>
+    </form>
+</body>
+</html>
