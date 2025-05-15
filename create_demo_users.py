@@ -6,7 +6,7 @@ app = create_app()
 
 with app.app_context():
     # Asegurarse de que los roles existen
-    roles = ['Admin', 'Professor', 'Student']
+    roles = ['Admin', 'Owner', 'User']
     for role_name in roles:
         existing_role = Role.query.filter_by(name=role_name).first()
         if not existing_role:
@@ -26,15 +26,15 @@ with app.app_context():
         },
         {
             "username": "John Doe",
-            "email": "prof@example.com",
-            "password": "prof123",
-            "role_name": "Professor"
+            "email": "owner@example.com",
+            "password": "own123",
+            "role_name": "Owner"
         },
         {
             "username": "Steve Jobs",
-            "email": "student@example.com",
-            "password": "student123",
-            "role_name": "Student"
+            "email": "user@example.com",
+            "password": "usert123",
+            "role_name": "User"
         }
     ]
 
