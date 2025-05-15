@@ -1,0 +1,11 @@
+### Editar un curso (POST)
+
+# Simular POST con nuevos datos del curso
+
+PUT http://localhost:5000/cursos/4
+Content-Type: application/json
+
+{
+  "titulo": "Curso actualizado",
+  "descripcion": "Nueva descripción actualizada"
+}

@@ -1,0 +1,10 @@
+### Crear un nuevo curso (POST)
+
+POST http://localhost:5000/cursos
+Content-Type: application/json
+
+{
+  "titulo": "Flask Avanzado",
+  "descripcion": "Curso intensivo de desarrollo con Flask",
+  "profesor_id": 1
+}

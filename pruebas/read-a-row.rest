@@ -1,0 +1,4 @@
+### Obtener curso por ID (GET)
+
+GET http://localhost:5000/cursos/1
+Content-Type: application/json

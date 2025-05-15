@@ -1,0 +1,3 @@
+### Eliminar curso (POST)
+
+DELETE http://localhost:5000/cursos/4
