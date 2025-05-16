@@ -41,7 +41,7 @@ def dashboard():
     """
     Panel principal del admin. Muestra los los items en el inventario.
     """
-    if current_user.role.name == 'Admin': # Change this for your project
+    if current_user.role and current_user.role.name == 'Admin': # Change this for your project
         items = Item.query.all()
     else:
         items = Item.query.filter_by(owner_id=current_user.id).all()
@@ -51,7 +51,7 @@ def dashboard():
 @main.route('/items/nuevo', methods=['GET', 'POST'])
 @login_required
 def nuevo_item():
-    if current_user.role.name not in ['Admin', 'Owner']:
+    if current_user.role and current_user.role.name not in ['Admin', 'Owner']:
         flash("No tienes permiso para crear ítems.")
         return redirect(url_for('main.dashboard'))
     form = ItemForm()
@@ -82,8 +82,8 @@ def editar_item(id):
     item = Item.query.get_or_404(id)
 
     # Validación de permisos
-    if current_user.role.name not in ['Admin', 'Owner'] or (
-        item.owner_id != current_user.id and current_user.role.name != 'Admin'):
+    if current_user.role and (item.owner_id != current_user.id and 
+        current_user.role.name  != 'Admin'):
         flash('You do not have permission to edit this course.')  # 🔁 Traducido
         return redirect(url_for('main.dashboard'))
 
