@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash
 from flask_login import login_required, current_user
-from app.forms import CursoForm, ChangePasswordForm
-from app.models import db, Curso, User
+from app.forms import ItemForm, ChangePasswordForm
+from app.models import db, Item, User
 
 # Blueprint principal que maneja el dashboard, gestión de cursos y cambio de contraseña
 main = Blueprint('main', __name__)
@@ -46,7 +46,7 @@ def dashboard():
     else:
         items = Item.query.filter_by(owner_id=current_user.id).all()
 
-    return render_template('dashboard.html', cursos=cursos)
+    return render_template('dashboard.html', items=items)
 
 @main.route('/items/nuevo', methods=['GET', 'POST'])
 @login_required

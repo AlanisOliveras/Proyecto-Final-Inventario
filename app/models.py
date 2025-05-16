@@ -28,7 +28,7 @@ class User(UserMixin, db.Model):
     role_id = db.Column(db.Integer, db.ForeignKey('role.id'), nullable=False)
 
     # Relación con items
-    cursos = db.relationship('Item', backref='owner', lazy=True)
+    items = db.relationship('Item', backref='owner', lazy=True)
 
     def set_password(self, password: str):
         """

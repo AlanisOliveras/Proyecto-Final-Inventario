@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from app.models import db, Curso
+from app.models import db, Item
 
 # Blueprint solo con endpoints de prueba para cursos
 main = Blueprint('main', __name__)
@@ -12,12 +12,12 @@ def index():
     """
     return '<h1>Corriendo en Modo de Prueba.</h1>'
 
-@main.route('/items', methods=['GET'])
+@main.route('/item', methods=['GET'])
 def listar_items():
     """
     Retorna una lista de items (JSON).
     """
-    items = Item.query.all()
+    item = Item.query.all()
 
     data = [
         {
@@ -29,7 +29,7 @@ def listar_items():
             'fecha_adquisicion': item.fecha_adquisicion.iosformat(),
             'owner_id': item.owner_id
         }
-        for item in items
+        for item in item
     ]
     return jsonify(data), 200
 

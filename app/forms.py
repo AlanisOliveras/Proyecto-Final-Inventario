@@ -37,5 +37,5 @@ class ItemForm(FlaskForm):
     cantidad =IntegerField('Cantidad', validators=[DataRequired()])
     precio_estimado=DecimalField('Precio Estimado', validators=[DataRequired()])
     ubicacion= StringField('Ubicación', validators=[DataRequired()])
-    fecha_adquisicion= DataField('Fecha de Adquisición', validators=[DataRequired()])
+    fecha_adquisicion= DateField('Fecha de Adquisición', validators=[DataRequired()])
     submit = SubmitField('Save')

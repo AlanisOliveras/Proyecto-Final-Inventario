@@ -15,7 +15,7 @@ class Config:
     # Ejemplo para MySQL usando PyMySQL (puede adaptarse a PostgreSQL o SQLite)
     SQLALCHEMY_DATABASE_URI = os.environ.get(
         'DATABASE_URL',
-        'mysql+pymysql://root:root@localhost/gestion_cursos'  # Valor por defecto para entorno local (MAMP/XAMPP)
+        'mysql+pymysql://root:root@localhost/inventario_personal'  # Valor por defecto para entorno local (MAMP/XAMPP)
     )
 
     # Desactiva el sistema de seguimiento de modificaciones de SQLAlchemy (mejora el rendimiento)

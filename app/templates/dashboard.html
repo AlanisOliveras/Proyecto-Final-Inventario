@@ -1,14 +1,14 @@
-{% extends "layout.html" %} {% block title %}Dashboard - Personal Inventory{% endblock %} {% block
+{% extends "layout.html" %} {% block title %}Dashboard{% endblock %} {% block
   content %}
   <div class="row">
     <div class="col">
-      <h3>Items Inventory</h3>
+      <h3>Personal Inventory</h3>
     </div>
     <div class="col text-end">
       <!-- Change the next line for your project -->
       {% if current_user.role.name in ['Admin', 'Owner'] %}
       <a class="btn btn-primary mb-3 me-2" href="{{ url_for('main.nuevo_item) }}">
-        <i class="bi bi-plus"></i> Nuevo ítem
+        <i class="bi bi-plus"></i> New item
       </a>
       {% endif %}
     </div>
@@ -19,6 +19,7 @@
       <tr>
         <th>Nombre</th>
         <th>Categoria</th>
+         <th>Cantidad</th>
         <th>Precio Estimado</th>
         <th>Ubicación</th>
         <th>Fecha de Adquisición</th>
@@ -27,10 +28,11 @@
       </tr>
     </thead>
     <tbody>
-      {% for product in products %}
+      {% for item in items %}
       <tr>
         <td>{{ item.nombre }}</td>
         <td>{{ item.categoria }}</td>
+        <td>{{ item.cantidad }}</td>
         <td>{{ item.precio_estimado }}</td>
         <td>{{ item.ubicacion }}</td>
         <td>{{item.fecha_adquisicion}}</td>
@@ -45,7 +47,7 @@
           <form
             method="POST" action="{{ url_for('main.eliminar_item', id=item.id) }}"
             style="display: inline" onsubmit="return confirm('Are you sure you want to delete this item?');">
-            <button type="submit" class="btn btn-sm btn-danger" title="Eliminar ítem">
+            <button type="submit" class="btn btn-sm btn-danger" title="Delete item">
               <i class="bi bi-trash"></i>
             </button>
           </form>
@@ -59,7 +61,7 @@
   </table>
   
   <!-- Change the next line for your project -->
-  {% if current_user.role.name == 'Usuario' %}
+  {% if current_user.role.name == 'User' %}
   <p class="text-center pe-3 mt-0 text-body-tertiary fw-lighter fst-italic">
     You do not have permission to create, update or delete items.
   </p>
