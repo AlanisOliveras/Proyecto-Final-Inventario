@@ -1,30 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Item Inventory</title>
-</head>
-<body>
-    <h1>{{ 'Edit Item' if item else 'Add Item' }}</h1>
-    <form method="POST">
-        {{ form.hidden_tag() }}
-        <label for="nombre">{{ form.nombre.label }}</label> 
-        {{ form.nombre() }} <br>
+{% extends "layout.html" %}
+{% block title %}{{ 'Edit Item' if item else 'Add Item' }}{% endblock %}
 
-        <label for="categoria">{{ form.categoria.label }}</label> 
-        {{ form.categoria() }} <br>
+{% block content %}
+<div class="d-flex justify-content-center align-items-center">
+    <div class="card col-11 col-sm-10 col-md-8 col-lg-6 mt-4 shadow-sm">
+        <div class="card-header text-center">
+            <h2>{{ 'Edit Item' if item else 'Add Item' }}</h2>
+        </div>
+        <div class="card-body">
+            <form method="POST">
+                {{ form.hidden_tag() }}
+                
+                <!-- Nombre del Ítem -->
+                <div class="mb-3">
+                    {{ form.nombre.label(class="form-label") }}
+                    {{ form.nombre(class="form-control", placeholder="Enter item name") }}
+                    {% for error in form.nombre.errors %}
+                    <div class="text-danger small">{{ error }}</div>
+                    {% endfor %}
+                </div>
 
-        <label for="precio_estimado">{{ form.precio_estimado.label }}</label> 
-        {{ form.price() }} <br>
+                <!-- Categoría -->
+                <div class="mb-3">
+                    {{ form.categoria.label(class="form-label") }}
+                    {{ form.categoria(class="form-control", placeholder="Enter category") }}
+                    {% for error in form.categoria.errors %}
+                    <div class="text-danger small">{{ error }}</div>
+                    {% endfor %}
+                </div>
 
-        <label for="ubicacion">{{ form.ubicacion.label }}</label> 
-        {{ form.ubicacion() }} <br>
+                <!-- Cantidad -->
+                <div class="mb-3">
+                    {{ form.cantidad.label(class="form-label") }}
+                    {{ form.cantidad(class="form-control", placeholder="Enter quantity") }}
+                    {% for error in form.cantidad.errors %}
+                    <div class="text-danger small">{{ error }}</div>
+                    {% endfor %}
+                </div>
 
-        <label for="fecha_adquisicion">{{ form.fecha_adquisicion.label }}</label> 
-        {{ form.fecha_adquisicion() }} <br>
+                <!-- Precio Estimado -->
+                <div class="mb-3">
+                    {{ form.precio_estimado.label(class="form-label") }}
+                    {{ form.precio_estimado(class="form-control", placeholder="Enter estimated price") }}
+                    {% for error in form.precio_estimado.errors %}
+                    <div class="text-danger small">{{ error }}</div>
+                    {% endfor %}
+                </div>
 
-        <button type="submit">{{ form.submit.label.text }}</button>
-    </form>
-</body>
-</html>
+                <!-- Ubicación -->
+                <div class="mb-3">
+                    {{ form.ubicacion.label(class="form-label") }}
+                    {{ form.ubicacion(class="form-control", placeholder="Enter location") }}
+                    {% for error in form.ubicacion.errors %}
+                    <div class="text-danger small">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <!-- Fecha de Adquisición -->
+                <div class="mb-3">
+                    {{ form.fecha_adquisicion.label(class="form-label") }}
+                    {{ form.fecha_adquisicion(class="form-control", placeholder="YYYY-MM-DD") }}
+                    {% for error in form.fecha_adquisicion.errors %}
+                    <div class="text-danger small">{{ error }}</div>
+                    {% endfor %}
+                </div>
+        </div>
+
+        <!-- Botón de Enviar -->
+        <div class="card-footer text-center">
+            {{ form.submit(class="btn btn-success w-100") }}
+        </div>
+            </form>
+    </div>
+</div>
+{% endblock %}

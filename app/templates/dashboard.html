@@ -7,7 +7,7 @@
     <div class="col text-end">
       <!-- Change the next line for your project -->
       {% if current_user.role.name in ['Admin', 'Owner'] %}
-      <a class="btn btn-primary mb-3 me-2" href="{{ url_for('main.nuevo_item) }}">
+      <a class="btn btn-primary mb-3 me-2" href="{{ url_for('main.nuevo_item') }}">
         <i class="bi bi-plus"></i> New item
       </a>
       {% endif %}

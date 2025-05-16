@@ -12,7 +12,7 @@ class LoginForm(FlaskForm):
 class RegisterForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired(), Length(min=6)])
     confirm_password = PasswordField('Confirm password', validators=[DataRequired(), EqualTo('password')])
     
     role = SelectField(
@@ -22,6 +22,7 @@ class RegisterForm(FlaskForm):
     )
 
     submit = SubmitField('Register')
+
 
 # Formulario para cambiar la contraseña del usuario
 class ChangePasswordForm(FlaskForm):
@@ -34,8 +35,8 @@ class ChangePasswordForm(FlaskForm):
 class ItemForm(FlaskForm):
     nombre =StringField('Nombre del ítem', validators=[DataRequired()])
     categoria =StringField('Categoría', validators=[DataRequired()])
-    cantidad =IntegerField('Cantidad', validators=[DataRequired()])
-    precio_estimado=DecimalField('Precio Estimado', validators=[DataRequired()])
+    cantidad =IntegerField('Cantidad', validators=[DataRequired(), NumberRange(min=1, message="Debe ser mayor que 0")])
+    precio_estimado=DecimalField('Precio Estimado', validators=[DataRequired(), NumberRange(min=0)], places=2)
     ubicacion= StringField('Ubicación', validators=[DataRequired()])
-    fecha_adquisicion= DateField('Fecha de Adquisición', validators=[DataRequired()])
+    fecha_adquisicion= DateField('Fecha de Adquisición', format='%Y-%m-%d', validators=[DataRequired()])
     submit = SubmitField('Save')

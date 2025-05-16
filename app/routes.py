@@ -87,7 +87,7 @@ def editar_item(id):
         flash('You do not have permission to edit this course.')  # 🔁 Traducido
         return redirect(url_for('main.dashboard'))
 
-    form = ItemForm(obj=curso)
+    form = ItemForm(obj=item)
 
     if form.validate_on_submit():
         item.nombre= form.nombre.data
@@ -100,7 +100,7 @@ def editar_item(id):
         flash("Item updated successfully.")  # 🔁 Traducido
         return redirect(url_for('main.dashboard'))
 
-    return render_template('item_form.html', form=form, editar=True)
+    return render_template('item_form.html', form=form, editar=True, item=item)
 
 @main.route('/items/<int:id>/eliminar', methods=['POST'])
 @login_required
