@@ -1,4 +1,4 @@
-### Obtener todos los cursos (GET)
+### Obtener todos los items (GET)
 
 GET http://127.0.0.1:5000/items
 Content-Type: application/json

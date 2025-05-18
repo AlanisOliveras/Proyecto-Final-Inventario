@@ -1,4 +1,4 @@
-### Obtener curso por ID (GET)
+### Obtener item por ID (GET)
 
 GET GET http://127.0.0.1:5000/items/1
 Content-Type: application/json

@@ -1,6 +1,6 @@
-### Editar un curso (POST)
+### Editar un item (POST)
 
-# Simular POST con nuevos datos del curso
+# Simular POST con nuevos datos del item
 
 PUT http://127.0.0.1:5000/items/1
 Content-Type: application/json

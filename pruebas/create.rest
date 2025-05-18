@@ -1,4 +1,4 @@
-### Crear un nuevo curso (POST)
+### Crear un nuevo item (POST)
 
 POST http://127.0.0.1:5000/items
 Content-Type: application/json
