@@ -1,10 +1,14 @@
 ### Crear un nuevo curso (POST)
 
-POST http://localhost:5000/cursos
+POST http://127.0.0.1:5000/items
 Content-Type: application/json
 
 {
-  "titulo": "Flask Avanzado",
-  "descripcion": "Curso intensivo de desarrollo con Flask",
-  "profesor_id": 1
+  "nombre": "Proyector Epson",
+  "categoria": "Electrónica",
+  "cantidad": 2,
+  "precio_estimado": 450.00,
+  "ubicacion": "Oficina principal",
+  "fecha_adquisicion": "2024-04-01",
+  "owner_id": 1
 }
