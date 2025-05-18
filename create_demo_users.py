@@ -33,7 +33,7 @@ with app.app_context():
         {
             "username": "Steve Jobs",
             "email": "user@example.com",
-            "password": "usert123",
+            "password": "user123",
             "role_name": "User"
         }
     ]
