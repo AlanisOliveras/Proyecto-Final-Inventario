@@ -29,4 +29,6 @@ CREATE TABLE item (
     FOREIGN KEY (owner_id) REFERENCES user(id)
 );
 
-INSERT INTO role (name) VALUES ('Admin'), ('Usuario'), ('Owner');
+INSERT INTO role (name) VALUES ('Admin'), ('User'), ('Owner');
+
+
