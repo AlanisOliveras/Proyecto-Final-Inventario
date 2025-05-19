@@ -41,11 +41,12 @@ def dashboard():
     """
     Panel principal del admin. Muestra los los items en el inventario.
     """
-    if current_user.role and current_user.role.name == 'Admin': # Change this for your project
+    if current_user.role.name == 'User':
         items = Item.query.all()
+    elif current_user.role.name == 'Owner':
+        items= Item.query.filter_by(owner_id=current_user.id).all()
     else:
-        items = Item.query.filter_by(owner_id=current_user.id).all()
-
+        items= Item.query.all()
     return render_template('dashboard.html', items=items)
 
 @main.route('/items/nuevo', methods=['GET', 'POST'])
@@ -71,7 +72,7 @@ def nuevo_item():
         flash("Item created successfully.")  # 🔁 Traducido
         return redirect(url_for('main.dashboard'))
 
-    return render_template('item_form.html', form=form)
+    return render_template('item.html', form=form)
 
 @main.route('/items/<int:id>/editar', methods=['GET', 'POST'])
 @login_required
@@ -100,7 +101,7 @@ def editar_item(id):
         flash("Item updated successfully.")  # 🔁 Traducido
         return redirect(url_for('main.dashboard'))
 
-    return render_template('item_form.html', form=form, editar=True, item=item)
+    return render_template('item.html', form=form, editar=True, item=item)
 
 @main.route('/items/<int:id>/eliminar', methods=['POST'])
 @login_required
