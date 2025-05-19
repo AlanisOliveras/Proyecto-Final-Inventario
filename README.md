@@ -1,6 +1,6 @@
-# 🎓 Gestión de Cursos en Línea (Proyecto Demo) - Flask + MySQL Yareliz
+# 🎓 Gestión de Inventario Personal (Proyecto Demo) - Flask + MySQL 
 
-Este proyecto permite gestionar cursos en línea donde **profesores** pueden crear cursos, y **estudiantes** pueden visualizarlos. Además, los **administradores** pueden gestionar usuarios y roles. Es el Proyecto 1 dentro de una colección de 11 proyectos desarrollados como práctica final para los estudiantes.
+Este proyecto permite gestionar inventario en línea donde **owners** pueden crear items, y **usuarios** pueden visualizarlos. Además, los **administradores** pueden gestionar usuarios y roles. Es el Proyecto 5 dentro de una colección de 11 proyectos desarrollados como práctica final para los estudiantes.
 
 A continuación, capturas de algunas de la interfaces del front-end del proyecto:
 
@@ -40,17 +40,16 @@ A continuación, capturas de algunas de la interfaces del front-end del proyecto
 | `requirements.txt`                                                | Lista de paquetes Python requeridos                                        |
 | **`run.py`**                                                      | Punto de entrada para ejecutar el servidor Flask                           |
 | `app/__init__.py`                                                 | Inicializa la aplicación Flask y carga la configuración                    |
-| `app/models.py`                                                   | Contiene los modelos SQLAlchemy: User, Role, Curso                         |
-| `app/forms.py`                                                    | Formularios de Flask-WTF usados en login, registro, cursos, contraseñas    |
-| `app/routes.py`                                                   | Rutas principales del proyecto (dashboard, cursos, cambiar contraseña)     |
+| `app/models.py`                                                   | Contiene los modelos SQLAlchemy: User, Role, Item                          |
+| `app/forms.py`                                                    | Formularios de Flask-WTF usados en login, registro, items, contraseñas     |
+| `app/routes.py`                                                   | Rutas principales del proyecto (dashboard, items, cambiar contraseña)      | 
 | `app/auth_routes.py`                                              | Rutas para autenticación (login, registro, logout)                         |
 | `app/templates/layout.html`                                       | Plantilla base HTML con barra de navegación                                |
 | `app/templates/index.html`                                        | Página de inicio pública del sitio                                         |
 | `app/templates/login.html`                                        | Formulario de login de usuario                                             |
 | `app/templates/register.html`                                     | Formulario de registro con selección de rol                                |
 | `app/templates/dashboard.html`                                    | Panel principal del usuario autenticado                                    |
-| `app/templates/curso_form.html`                                   | Formulario de creación/edición de cursos                                   |
-| `app/templates/cursos.html`                                       | Vista de cursos creados por el usuario                                     |
+| `app/templates/item_form.html`                                    | Formulario de creación/edición de items                                    |
 | `app/templates/usuarios.html`                                     | Listado de usuarios con sus roles (solo para admins)                       |
 | `app/templates/cambiar_password.html`                             | Formulario para cambiar la contraseña del usuario                          |
 | `static/css/styles.css`                                           | Archivo CSS personalizado (opcional)                                       |
@@ -140,13 +139,13 @@ Cada estudiante (o grupo) realizará uno de los siguientes proyectos como práct
    > Para ejecutar el archivo SQL para el proyecto directamente en MySQL:
 
    ```bash
-   mysql -u root -p < database_schema/01_cursos.sql
+   mysql -u root -p < database_schema/05_inventario.sql
    ```
 
    > Puedes utilizar Visual Studio Code u otra herramienta gráfica que se conecte a tu DBMS (servidor) de MySQL y correr el archivo correspondiente al proyecto para crear tu base de datos:
 
    ```bash
-   01_cursos.sql
+   05_inventario.sql
    ```
 
 5. **Crear usuarios de prueba**
@@ -174,18 +173,18 @@ Estas credenciales puedes crearlas utilizano el archivo `create_demo_users.py`. 
 | Rol        | Usuario       | Email               | Contraseña |
 | ---------- | ------------- | ------------------- | ---------- |
 | Admin      | Administrator | admin@example.com   | admin123   |
-| Profesor   | John Doe      | prof@example.com    | prof123    |
-| Estudiante | Steve Jobs    | student@example.com | student123 |
+| Owner      | John Doe      | prof@example.com    | prof123    |
+| User       | Steve Jobs    | student@example.com | student123 |
 
 ## 📌 Archivos a crear o modificar por el estudiante según el proyecto asignado
 
-Puedes utilizar este proyecto de Gestión de Cursos en Línea como base para desarrollar cualquier otro proyecto asignado (por ejemplo: Recetas, Artículos, Tickets, etc.), debes crear o modificar los siguientes archivos:
+Puedes utilizar este proyecto de Gestión de Inventario Personal en Línea como base para desarrollar cualquier otro proyecto asignado (por ejemplo: Recetas, Artículos, Tickets, etc.), debes crear o modificar los siguientes archivos:
 
 | Archivo                              | Qué debes modificar o crear                                                                                                                                                                                               |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `app/models.py`                      | Renombrar el modelo Curso al nuevo recurso principal (e.g. Receta, Articulo). Cambiar atributos de la entidad principal según el nuevo CRUD.                                                                              |
-| `app/forms.py`                       | Modificar CursoForm para reflejar los datos o campos de tu entidad principal. Especifica el tipo de control de entrada según corresponda al dato de tu entidad principal.                                                 |
-| `app/routes.py`                      | Cambiar las rutas relacionadas con cursos (/cursos, /editar, /eliminar) al nuevo recurso. Asegúrate de actualizar las consultas y las plantillas usadas.                                                                  |
+| `app/models.py`                      | Renombrar el modelo Item al nuevo recurso principal (e.g. Receta, Articulo). Cambiar atributos de la entidad principal según el nuevo CRUD.                                                                              |
+| `app/forms.py`                       | Modificar ItemForm para reflejar los datos o campos de tu entidad principal. Especifica el tipo de control de entrada según corresponda al dato de tu entidad principal.                                                 |
+| `app/routes.py`                      | Cambiar las rutas relacionadas con item (/items, /editar, /eliminar) al nuevo recurso. Asegúrate de actualizar las consultas y las plantillas usadas.                                                                  |
 | `app/test_routes.py`                 | Rutas (end-points) para pruebas relacionadas con cursos (/cursos). Asegúrate de actualizar las consultas y las plantillas usadas para realizar las pruebas de tu proyecto.                                                |
 | `templates/curso_form.html`          | Renombrar el archivo (ej. receta_form.html) y cambia los datos (cajas de texto, etc.) o campos que se muestran en el formulario.                                                                                          |
 | `templates/cursos.html`              | Renombrar el archivo (ej. recetas.html) y actualiza la tabla para mostrar los datos específicos de tu entidad principal (tabla).                                                                                          |
@@ -293,3 +292,7 @@ Puedes utilizar este proyecto de Gestión de Cursos en Línea como base para des
 ## 🧠 Licencia
 
 Este proyecto es de uso académico y puede ser reutilizado con fines educativos indicando las referencias correspondientes del Proyecto. Este proyecto y la lista de proyectos son creaciones originales del profesor Javier A. Dastas de Ciencias de Computadoras.
+
+## Autores
+- Yareliz Catalan: https://github.com/YarelizCV
+- Alanis Oliveras: https://github.com/AlanisOliveras
