@@ -12,7 +12,7 @@ def index():
     """
     return '<h1>Corriendo en Modo de Prueba.</h1>'
 
-@main.route('/item', methods=['GET'])
+@main.route('/items', methods=['GET'])
 def listar_items():
     """
     Retorna una lista de items (JSON).
@@ -21,7 +21,7 @@ def listar_items():
 
     data = [
         {
-            'id': item.add,
+            'id': item.id,
             'nombre': item.nombre,
             'categoria': item.categoria,
             'precio_estimado': float(item.precio_estimado),
@@ -47,7 +47,7 @@ def listar_un_item(id):
             'categoria': item.categoria,
             'precio_estimado': float(item.precio_estimado),
             'ubicacion': item.ubicacion,
-            'fecha_adquisicion': item.fecha_adquisicion.iosformat(),
+            'fecha_adquisicion': item.fecha_adquisicion.isoformat(),
             'owner_id': item.owner_id
     }
 
