@@ -6,7 +6,7 @@
     </div>
     <div class="col text-end">
       <!-- Change the next line for your project -->
-      {% if current_user.role.name in ['Admin', 'Owner'] %}
+      {% if current_user.role.name != 'User' %}
       <a class="btn btn-primary mb-3 me-2" href="{{ url_for('main.nuevo_item') }}">
         <i class="bi bi-plus"></i> New item
       </a>
@@ -24,7 +24,7 @@
         <th>Ubicación</th>
         <th>Fecha de Adquisición</th>
         <th>Dueño</th>
-        <th class="text-center">Acciones</th>
+        <th class="text-center">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -41,7 +41,7 @@
           {% if current_user.role.name == 'Admin' or item.owner_id == current_user.id %}
   
           <a
-            class="btn btn-sm btn-warning" href="{{ url_for('main.editar_item', id=item.id) }}" title="Editar ítem">
+            class="btn btn-sm btn-warning" href="{{ url_for('main.editar_item', id=item.id) }}" title="Edit item">
             <i class="bi bi-pencil"></i>
           </a>
           <form
