@@ -30,5 +30,3 @@ CREATE TABLE item (
 );
 
 INSERT INTO role (name) VALUES ('Admin'), ('User'), ('Owner');
-
-
