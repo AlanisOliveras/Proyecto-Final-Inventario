@@ -1,21 +1,21 @@
 # 🎓 Gestión de Inventario Personal (Proyecto Demo) - Flask + MySQL 
 
-Este proyecto permite gestionar inventario en línea donde **owners** pueden crear items, y **usuarios** pueden visualizarlos. Además, los **administradores** pueden gestionar usuarios y roles. Es el Proyecto 5 dentro de una colección de 11 proyectos desarrollados como práctica final para los estudiantes.
+Este proyecto permite gestionar inventario en línea donde **owners** y pueden crear items, y **usuarios** pueden visualizarlos. Además, los **administradores** pueden gestionar usuarios e items. Es el Proyecto 5 dentro de una colección de 11 proyectos desarrollados como práctica final para los estudiantes.
 
 A continuación, capturas de algunas de la interfaces del front-end del proyecto:
 
 <figure class="image">
-   <img src="images/image-01.png" alt="Login Form">
+   <img src="images/login.png" alt="Login Form">
    <figcaption>Login Page</figcaption>
 </figure>
 
 <figure class="image">
-   <img src="images/image-02.png" alt="Dashboard">
+   <img src="images/dashboard.png" alt="Dashboard">
    <figcaption>Home Page / Dashboard</figcaption>
 </figure>
 
 <figure class="image">
-   <img src="images/image-03.png" alt="User List">
+   <img src="images/users.png" alt="User List">
    <figcaption>Registered Users</figcaption>
 </figure>
 
@@ -95,8 +95,8 @@ Cada estudiante (o grupo) realizará uno de los siguientes proyectos como práct
 1. **Clonar el repositorio**
 
    ```bash
-   git clone https://github.com/javierdastas/comp2052.git
-   cd comp2052/final_project
+   git clone https://github.com/YarelizCV/Proyecto-Final-Inventario.git
+   cd proyecto-final/final_project
    ```
 
    > **IMPORTANTE** : Para el trabajo grupal es requerido que uno de los integrantes del grupo cree una copia del repositorio del MASTER del curso (profesor). Este integrante será el líder del grupo y los demás miembros del grupo deben clonar el proyecto del repositorio del líder.
