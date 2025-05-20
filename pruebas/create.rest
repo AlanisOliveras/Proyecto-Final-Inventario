@@ -10,5 +10,5 @@ Content-Type: application/json
   "precio_estimado": 450.00,
   "ubicacion": "Oficina principal",
   "fecha_adquisicion": "2024-04-01",
-  "owner_id": 1
+  "owner_id": 2
 }

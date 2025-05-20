@@ -26,7 +26,7 @@ def listar_items():
             'categoria': item.categoria,
             'precio_estimado': float(item.precio_estimado),
             'ubicacion': item.ubicacion,
-            'fecha_adquisicion': item.fecha_adquisicion.iosformat(),
+            'fecha_adquisicion': item.fecha_adquisicion.isoformat(),
             'owner_id': item.owner_id
         }
         for item in item

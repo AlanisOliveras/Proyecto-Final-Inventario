@@ -2,7 +2,7 @@
 
 # Simular POST con nuevos datos del item
 
-PUT http://127.0.0.1:5000/items/1
+PUT http://127.0.0.1:5000/items/4
 Content-Type: application/json
 
 {
@@ -12,5 +12,5 @@ Content-Type: application/json
   "precio_estimado": 499.99,
   "ubicacion": "Sala de reuniones",
   "fecha_adquisicion": "2024-04-05",
-  "owner_id": 1
+  "owner_id": 2
 }
